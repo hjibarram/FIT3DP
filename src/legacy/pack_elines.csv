@@ -1,0 +1,19 @@
+# (1) ID
+# (2) File
+# (3) Description
+# (4) Type
+# (5) units
+1,map.6530_6810.NAME_vel_00.fits.gz, Halpha velocity, velocity, km/s
+2,map.6530_6810.NAME_disp_00.fits.gz, Velocity dispersion plus instrumenta one, velocity, AA
+3,map.3700_3900.NAME_flux_00.fits.gz, [OII]3727 emission line, flux, 10^-16 erg/s/cm^2
+4,map.4095_4250.NAME_flux_00.fits.gz, Hdelta emission line, flux, 10^-16 erg/s/cm^2
+5,map.4310_4500.NAME_flux_00.fits.gz, Hgamma emission line, flux, 10^-16 erg/s/cm^2
+6,map.4800_5200.NAME_flux_00.fits.gz, [OIII]5007 emission line, flux, 10^-16 erg/s/cm^2
+7,map.4800_5200.NAME_flux_01.fits.gz, [OIII]4959 emission line, flux, 10^-16 erg/s/cm^2
+8,map.4800_5200.NAME_flux_02.fits.gz, Hbeta emission line, flux, 10^-16 erg/s/cm^2
+9,map.6260_6450.NAME_flux_00.fits.gz, [OI]6300 emission line, flux, 10^-16 erg/s/cm^2
+10,map.6530_6810.NAME_flux_00.fits.gz, Halpha emission line, flux, 10^-16 erg/s/cm^2
+11,map.6530_6810.NAME_flux_01.fits.gz, [NII]6583 emission line, flux, 10^-16 erg/s/cm^2
+12,map.6530_6810.NAME_flux_02.fits.gz, [NII]6548 emission line, flux, 10^-16 erg/s/cm^2
+13,map.6700_6950.NAME_flux_00.fits.gz, [SII]6731 emission line, flux, 10^-16 erg/s/cm^2
+14,map.6700_6950.NAME_flux_01.fits.gz, [SII]6717 emission line, flux, 10^-16 erg/s/cm^2
