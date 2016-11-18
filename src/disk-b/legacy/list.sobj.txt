@@ -1,0 +1,4 @@
+../pmas_2009-06-27/CGCG428-060_p1.sobj.fits
+../pmas_2009-06-28/CGCG428-060_p2.sobj.fits
+../pmas_2009-06-28/CGCG428-060_p3.sobj.fits
+../pmas_2009-06-28/CGCG429-012_p1.sobj.fits

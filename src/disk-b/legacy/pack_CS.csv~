@@ -1,0 +1,24 @@
+# (1) ID
+# (2) File
+# (3) Description
+# (4) Type
+# (5) units
+1,NAME.V.fits.gz,pseudo V-band map, flux, 10^-16 erg/s/cm^2
+2,cont_seg.NAME.fits.gz, continuum segmentation file, id, none
+3,scale.seg.NAME.fits.gz, continuum dezonification file, flux, none
+4,map.CS.NAME_flux_ssp.fits.gz, median intensity flux within the wavelength range, flux, 10^-16 erg/s/cm^2
+5,map.CS.NAME_e_flux_ssp.fits.gz, StdDev median intensity flux within the wavelength range, flux, 10^-16 erg/s/cm^2
+6,map.CS.NAME_log_age_yr_ssp.fits.gz, luminosity weighted age of the stellar population, log10, yr
+7,map.CS.NAME_log_age_yr_mass_ssp.fits.gz, mass weighted age of the stellar population, log10, yr
+8,map.CS.NAME_e_log_age_yr_ssp.fits.gz, error of the age of the stellar population, log10, yr
+9,map.CS.NAME_met_ZH_ssp.fits.gz, luminosity weighted metallicity of the stellar population, log10, Solar metallicity
+10,map.CS.NAME_met_ZH_mass_ssp.fits.gz, mass weighted metallicity of the stellar population, log10, Solar metallicity
+11,map.CS.NAME_e_met_ZH_ssp.fits.gz, error metallicity of the stellar population, log10, Solar metallicity
+12,map.CS.NAME_Av_ssp.fits.gz, average dust attnuation of the stellar population, mag, magnitudes
+13,map.CS.NAME_e_Av_ssp.fits.gz, error of the average dust attnuation of the stellar population, mag, magnitudes
+14,map.CS.NAME_vel_ssp.fits.gz, velocity of the stellar population, velocity, km/h
+15,map.CS.NAME_e_vel_ssp.fits.gz, error in the velocity of the stellar population, velocity, km/h
+16,map.CS.NAME_disp_km_h_ssp.fits.gz, velocity dispersion of the stellar population, velocity, km/h
+17,map.CS.NAME_e_disp_km_h_ssp.fits.gz, error in velocity dispersion of the stellar population, velocity, km/h
+18,map.CS.NAME_ML_ssp.fits.gz, average mass-to-light ratio of the stellar population, log10, Solar mass to solar luminosity
+19,map.CS.NAME_Mass_ssp.fits.gz, stellar mass density, log10, m_Sun/spaxels^2

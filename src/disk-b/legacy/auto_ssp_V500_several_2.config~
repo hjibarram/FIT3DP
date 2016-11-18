@@ -1,0 +1,12 @@
+0.017 0.002 0.0001 0.027 10 100 0.1 0.5 3800 5500
+3.2  0.0    1.9    6.5
+0.4  0.1    0.0   2.5
+5
+6530 6950 mask_elines.txt /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/Ha_SII_V500.config 9 /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/mask_elines_H.txt 20 1950
+4900 5200 mask_elines.txt /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/OIII_only_V500.config 9 /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/mask_elines_H.txt 20 1950
+4800 5050 mask_elines.txt /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/Hb_V500.config 9 /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/mask_elines_H.txt 20 1950
+4310 4500 mask_elines.txt /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/Hg_V500.config 9 /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/mask_elines_H.txt 20 1950
+4095 4250 mask_elines.txt /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/Hd_V500.config 9 /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/mask_elines_H.txt 20 1950
+3700 3900 mask_elines.txt /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/OII_V500.config 9 /disk-a/sanchez/ppak/legacy/DATA/SSP/legacy/mask_elines_H.txt 20 1950
+0.0001  1 0.00
+6588 6760

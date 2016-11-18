@@ -1,0 +1,8 @@
+0.017 0.002 0.0001 0.027
+0.5  0.2  0.3    2.8
+0.0  0.0    0.0   2.5
+2
+3710 3900 mask_elines.txt /disk-b/sanchez/ppak/legacy/OII_V1200.config 9 /disk-b/sanchez/ppak/legacy/mask_elines_H.txt 20 1950
+4310 4490 mask_elines.txt /disk-b/sanchez/ppak/legacy/Hgam_V1200.config 9 /disk-b/sanchez/ppak/legacy/mask_elines_H.txt 20 1950
+0.01  1  0.05
+3900 3920
