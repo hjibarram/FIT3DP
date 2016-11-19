@@ -6,4 +6,4 @@ export PATH="$FIT3DP_PATH:$PATH"
 cd $FIT3DP_PATH
 chmod a+x *.py
 #FIT3D is installed
-#Commnets or further questions plese contat Hector Ibarra Medel: hjibarram@gmail.com
+#Contact for questions: hjibarram@gmail.com
