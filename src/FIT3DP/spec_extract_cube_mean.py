@@ -38,7 +38,7 @@ outfile=sys.argv[3]
 pt=outfile
 pt=pt.replace('fits','pt.txt')
 [a_in, h]=gdata(infile, 0, header=True)
-[nz,ny,nx]=a_in.shape
+[nz,nx,ny]=a_in.shape
 crval=h["CRVAL3"]
 cdelt=h["CDELT3"]
 crpix=h["CRPIX3"]
