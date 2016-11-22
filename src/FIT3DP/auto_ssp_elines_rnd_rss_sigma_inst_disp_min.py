@@ -386,7 +386,7 @@ else:
 #
 [pdl_input_rss, hd]=gdata(input_rss, 0, header=True)
 nx=hd["NAXIS1"]
-NY=5#hd["NAXIS2"]
+NY=hd["NAXIS2"]
 crpix=hd["CRPIX1"]
 crval=hd["CRVAL1"]
 cdelt=hd["CDELT1"]

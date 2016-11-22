@@ -114,7 +114,7 @@ config="auto_ssp_MaNGA_strong.config"
 config_no="auto_ssp_MaNGA_no_lines.config"
 config_SII="auto_ssp_MaNGA_strong_SII.config"
 
-root_dir=sycallo("echo $FIT3DP_PATH")
+root_dir=sycallo("echo $FIT3DP_PATH")+"/.."
 DIR_CONF=root_dir+"/"+DIR_CONF
 #DIR_DATA=root_dir+"/"+DIR_DATA
 #DIR_DATA_OUT=root_dir+"/"+DIR_DATA_OUT
@@ -226,7 +226,7 @@ call="clean_nan.py "+NAME+".V.fits -1"
 mycall(call)
 
 call="radial_sum_cube_e.py "+FILE+" 2.5 "+str(int((np.round(XC))))+" "+str(int((np.round(YC))))+" rad."+NAME+".rss.fits 2"
-#mycall(call)
+mycall(call)
 
 call="img2spec_e.py rad."+NAME+".rss.fits 0 "+NAME+".spec_5.txt"
 mycall(call)
@@ -273,7 +273,7 @@ min_red=0.0001
 max_red=0.15
 d_red=300/vel_light
 call="auto_ssp_elines_rnd.py  "+NAME+".spec_5.txt "+temp_5+","+temp_4+" auto_ssp_Z."+NAME+".cen.out "+DIR_CONF+"/mask_elines.txt "+DIR_CONF+"/"+config_no+" "+str(plot)+" -3 50 3800,3850 7000,4700 none  "+str(red)+" "+str(d_red)+" "+str(min_red)+" "+str(max_red)+" 1.6 0.5 1.2 5.5 0.0 0.15 0.0 1.6"
-#mycall(call)
+mycall(call)
 #sys.exit()
 vel=0
 disp_MAX=5.5
@@ -302,16 +302,16 @@ w_cut2_2=4700*(1+red)
 
 #call="auto_ssp_elines_rnd.py  "+NAME+".spec_5.txt "+temp_5+","+temp_2+" auto_ssp_no_mask."+NAME+".cen.out none auto."+NAME+".config "+str(plot)+" -3 50 3700,3850 10000,4700 "+DIR_CONF+"/emission_lines.txt  "+str(red)+" 0 "+str(min_red)+" "+str(max_red)+" 3.2 0.3 1.2 "+str(disp_MAX)+" 0.3 0.15 0.0 1.6"
 call="auto_ssp_elines_rnd_sigma_inst.py  "+NAME+".spec_5.txt "+temp_5+","+temp_2+",0.7201 auto_ssp_no_mask."+NAME+".cen.out none auto."+NAME+".config "+str(plot)+" -3 50 "+str(w_cut1_1)+","+str(w_cut2_1)+" "+str(w_cut1_2)+","+str(w_cut2_2)+" "+DIR_CONF+"/emission_lines.txt  "+str(red)+" 0 "+str(min_red)+" "+str(max_red)+" 30 20 1 400 0.0 0.15 0.0 1.6"
-#mycall(call)
+mycall(call)
 
 #call="auto_ssp_elines_rnd.py  "+NAME+".spec_5.txt "+temp_5+","+temp_2+" auto_ssp."+NAME+".cen.out "+DIR_CONF+"/mask_elines.txt auto."+NAME+".config "+str(plot)+" -3 50 3700,3850 10000,4700 "+DIR_CONF+"/emission_lines.txt  "+str(red)+" 0 "+str(min_red)+" "+str(max_red)+" 3.2 0.3 1.2 "+str(disp_MAX)+" 0.3 0.15 0.0 1.6"
 call="auto_ssp_elines_rnd_sigma_inst.py  "+NAME+".spec_5.txt "+temp_5+","+temp_2+",0.7201 auto_ssp."+NAME+".cen.out "+DIR_CONF+"/mask_elines.txt auto."+NAME+".config "+str(plot)+" -3 50 "+str(w_cut1_1)+","+str(w_cut2_1)+" "+str(w_cut1_2)+","+str(w_cut2_2)+" "+str(DIR_CONF)+"/emission_lines.txt  "+str(red)+" 0 "+str(min_red)+" "+str(max_red)+" 30 20 1 400 0.0 0.15 0.0 1.6"
-#mycall(call)
+mycall(call)
 
 #call="auto_ssp_elines_rnd.py  "+NAME+".spec_30.txt "+temp_5+","+temp_2+" auto_ssp."+NAME+".int.out "+DIR_CONF+"/mask_elines.txt auto."+NAME+".config "+str(plot)+" -3 150 3700,3850 10000,4700 "+DIR_CONF+"/emission_lines.txt  "+str(red)+" "+str(d_red)+" "+str(min_red)+" "+str(max_red)+" 3.2 0.3 1.2 "+str(disp_MAX)+" 0.3 0.15 0.0 1.6"
 call="auto_ssp_elines_rnd_sigma_inst.py  "+NAME+".spec_30.txt "+temp_5+","+temp_2+",0.7201 auto_ssp."+NAME+".int.out "+DIR_CONF+"/mask_elines.txt auto."+NAME+".config "+str(plot)+" -3 150 "+str(w_cut1_1)+","+str(w_cut2_1)+" "+str(w_cut1_2)+","+str(w_cut2_2)+" "+DIR_CONF+"/emission_lines.txt  "+str(red)+" "+str(d_red)+" "+str(min_red)+" "+str(max_red)+" 30 20 1 400 0.0 0.15 0.0 1.6"
 mycall(call)
-sys.exit()
+#sys.exit()
 call="med2df.py "+NAME+".V.fits m"+NAME+".V.fits 2 2"
 mycall(call)
 

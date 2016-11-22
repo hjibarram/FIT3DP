@@ -25,7 +25,7 @@ conf2=sys.argv[2]
 conf3=sys.argv[3]
 dir_cnf=sys.argv[4]
 
-root_dir=sycallo("echo $FIT3DP_PATH")
+root_dir=sycallo("echo $FIT3DP_PATH")+"/.."
 print root_dir
 root_dirn=root_dir.replace(" ","\ ")
 f1=open(dir_cnf+"/"+conf1,"r")
