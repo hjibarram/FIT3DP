@@ -290,8 +290,8 @@ for k in range(0, ne):
                 if val_cont != 0:
                     EW=(-1.0)*I0/abs(val_cont)
                     e_EW=abs(s_I0)/abs(val_cont)+(I0*abs(e_val_cont))/(val_cont**2.0)
-                    if abs(EW) < e_EW:
-                        EW=0
+                    #if abs(EW) < e_EW:
+                    #    EW=0
                     if EW > 0:
                         EW=0
                 else:

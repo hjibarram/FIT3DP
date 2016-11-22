@@ -46,6 +46,7 @@ def get_time():
 
 def get_data_t():
     dat=[]
+    dat.extend([["Ha"     ,6542.800, 6582.800, 6507.500, 6537.500, 6587.900, 6617.900]])
     dat.extend([["Hd"     ,4083.500, 4122.250, 4041.600, 4079.750, 4128.500, 4161.000]])
     dat.extend([["Hb"     ,4847.875, 4876.625, 4827.875, 4847.875, 4876.625, 4891.625]])
     dat.extend([["Mgb"    ,5160.125, 5192.625, 5142.625, 5161.375, 5191.375, 5206.375]])
@@ -136,6 +137,7 @@ w_max=w_max+200
 
 [pdl, hdr]=gdata(spec_file, 0, header=True)
 [ny,nx,nz]=pdl.shape
+print ny,nx,nz
 crval=hdr["CRVAL1"]
 cdelt=hdr["CDELT1"]
 crpix=hdr["CRPIX1"]
@@ -322,6 +324,7 @@ for j in range(0, ny):
         s_EW_now=np.std(tmp_EW)
         lip=lip+str(EW_now)+" "+str(s_EW_now)+" " 
     lip=lip+"SN  "+str(med_S)+"  "+str(sig_N)
+    #print lip
     if printo == 1:
         print lip
     else:
