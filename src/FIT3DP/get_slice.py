@@ -44,12 +44,13 @@ print "Reading cube"
 [b, hdr] = gdata(input_cube, 0 ,header=True)
 crval3 = hdr["CRVAL3"]
 cdelt3= hdr["CDELT3"]
+crpix3= hdr["CRPIX3"]
 [nx,ny,nz]=b.shape
 
 for i in range(0, ns):
     out_file=prefix+"_"+name[i]+"_"+str(int(start_w[i]))+"_"+str(int(end_w[i]))+".fits"
-    start_i=int((start_w[i]-crval3)/cdelt3)
-    end_i=int((end_w[i]-crval3)/cdelt3)
+    start_i=int((start_w[i]-crval3)/cdelt3+crpix3-1)
+    end_i=int((end_w[i]-crval3)/cdelt3+crpix3-1)
     if (start_i > -1 ) and (end_i < nx): 
         npix=end_i-start_i+1
         a=b[start_i:end_i,:,:]
