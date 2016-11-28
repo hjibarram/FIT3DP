@@ -1,0 +1,20 @@
+Example scripts
+To analize public MaNGA cubes:
+first download a cube from: https://sas.sdss.org/sas/mangawork/manga/spectro/redux/v1_5_1/"plate_number"/stack/manga-"plate_number"-"fiber_id"-LINCUBE.fits.gz
+where plate_number is the number of the plate of the cube with a fiber configuration "fiber_conf".
+Run the script:
+python ana_MaNGA.py manga-"plate_number"-"fiber_conf"-LINCUBE.fits.gz
+
+To analize public CALIFA cubes:
+first download a cube from: ftp://ftp.caha.es/CALIFA/reduced/V500/reduced_v2.2/"name".V500.rscube.fits.gz
+Run the script:
+python ana_CALIFA.py "name".V500.rscube.fits.gz
+
+To analize one fiber single spectra (SDSS DR13 format):
+
+Run the script:
+python fit_single.py spec-2095-53474-0355.fits
+
+To analize multiple spectrum in a Row Stack Spectra (RSS) format:
+ Script to create a RSS from multiple SDSS spectra:
+

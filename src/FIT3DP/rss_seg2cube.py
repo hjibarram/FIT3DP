@@ -52,8 +52,8 @@ h2["CRPIX3"]=crpix
 h2["NAXIS"]=3
 h2["NAXIS"]=nz
 
-for i in range(0, nx):
-    for j in range(0, ny):
+for i in range(0, ny):
+    for j in range(0, nx):
         ist=int(s_in[i,j])
         if ist > 0:
             is_out=ist-1
