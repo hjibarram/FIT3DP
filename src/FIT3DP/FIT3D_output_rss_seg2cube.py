@@ -58,9 +58,9 @@ h2["CRVAL3"]=crval
 h2["CDELT3"]=cdelt
 h2["CRPIX3"]=crpix
 h2["NAXIS"]=3
-for i in range(0, nx):
-    for j in range(0, ny):
-        ist=int(s_in[i,j])
+for i in range(0, ny):
+    for j in range(0, nx):
+        ist=int(s_in[j,i])
         if ist > 0:
             is_out=ist-1
             out_cube[:,i,j]=a_in[is_out,:]
