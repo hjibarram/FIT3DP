@@ -53,14 +53,14 @@ if cdelt == 0:
 a_in=a_in_rss[:,:,nout]
 [s_in, h2]=gdata(segfile, 0, header=True)
 [nx,ny]=s_in.shape
-out_cube=np.zeros([nz,ny,nx])
+out_cube=np.zeros([nz,nx,ny])
 h2["CRVAL3"]=crval
 h2["CDELT3"]=cdelt
 h2["CRPIX3"]=crpix
 h2["NAXIS"]=3
-for i in range(0, ny):
-    for j in range(0, nx):
-        ist=int(s_in[j,i])
+for i in range(0, nx):
+    for j in range(0, ny):
+        ist=int(s_in[i,j])
         if ist > 0:
             is_out=ist-1
             out_cube[:,i,j]=a_in[is_out,:]
