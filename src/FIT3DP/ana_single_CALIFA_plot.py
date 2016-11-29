@@ -55,7 +55,7 @@ if len(sys.argv) == 5:
     DIR_PLOTS=sys.argv[4]
 #SPLIT=NAME.split("-",3)
 #DIR_DATA_OUT_final0=DIR_DATA_OUT+"/"+SPLIT[1]
-#DIR_DATA_OUT_final=DIR_DATA_OUT+"/"+SPLIT[1]+"/"+SPLIT[2]
+DIR_DATA_OUT_final=DIR_DATA_OUT+"/"+NAME#SPLIT[1]+"/"+SPLIT[2]
 
 logfile="ana_single_plot."+NAME+".log"
 flog=open(logfile,"w")
