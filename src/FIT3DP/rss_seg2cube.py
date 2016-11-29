@@ -54,7 +54,7 @@ h2["NAXIS"]=nz
 
 for i in range(0, ny):
     for j in range(0, nx):
-        ist=int(s_in[i,j])
+        ist=int(s_in[j,i])
         if ist > 0:
             is_out=ist-1
             out_cube[:,i,j]=a_in[is_out,:]

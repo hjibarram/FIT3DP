@@ -71,6 +71,8 @@ print "# "+str(i_6300)+":"+str(i_6550)+" "+str(wmin)+","+str(wmax)
 pdl_slice=pdl[:,i_6300:i_6550]
 [ny,nx]=pdl_slice.shape
 delta=int((i_6550-i_6300)/10)
+if np.mod(delta,2)==0:
+    delta=delta+1
 pdl_k=np.ones(delta)
 
 pdl_res=np.zeros([ny,nx])
