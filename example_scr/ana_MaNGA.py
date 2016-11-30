@@ -604,7 +604,7 @@ sycall(call)
 call="mv *.fits "+DIR_DATA_OUT_final+"/"
 sycall(call)
 
-call="ana_single_MaNGA_plot.py "+NAME+" "+DIR_DATA+" "+DIR_DATA_OUT+" "+DIR_PLOTS
+call="ana_single_MaNGA_plot_2.py "+NAME+" "+DIR_DATA+" "+DIR_DATA_OUT+" "+DIR_PLOTS
 mycall(call)
 flog.close
 call="mv *.log "+DIR_DATA_OUT_final+"/"
