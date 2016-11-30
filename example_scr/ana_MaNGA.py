@@ -137,9 +137,9 @@ plot_rss=0
 
 VER="v1_3_2"
 VER="MPL-5"
-DIR_DATA=""
-DIR_DATA_OUT=""
-DIR_PLOTS=""
+DIR_DATA="./"
+DIR_DATA_OUT="./"
+DIR_PLOTS="./"
 max_size=10
 frac=0.9
 #template="home/sanchez/ppak/legacy/gsd61_156.fits"
@@ -175,8 +175,8 @@ nsa_z=0;
 if len(sys.argv) == 3:
     nsa_z=sys.argv[2]
 SPLIT=NAME.split("-",3)
-DIR_DATA_OUT_final0=DIR_DATA_OUT+"/"+SPLIT[1]
-DIR_DATA_OUT_final=DIR_DATA_OUT+"/"+SPLIT[1]+"/"+SPLIT[2]
+#DIR_DATA_OUT_final0=DIR_DATA_OUT+"/"+SPLIT[1]
+DIR_DATA_OUT_final=DIR_DATA_OUT+"/"+NAME#+"/"+SPLIT[2]
 FILE=DIR_DATA+NAME+".cube.fits.gz"
 init_time=print_time()
 call="re_config.py "+config+" "+config_no+" "+config_SII+" "+DIR_CONF
@@ -593,8 +593,8 @@ for DR in DIRS:
     DRT=DRT+DR+"/"
     call="mkdir -p "+DRT
     sycall(call) 
-call="mkdir -p "+DIR_DATA_OUT_final0
-sycall(call)
+#call="mkdir -p "+DIR_DATA_OUT_final0
+#sycall(call)
 call="mkdir -p "+DIR_DATA_OUT_final
 sycall(call)
 call="mv *"+NAME+"* "+DIR_DATA_OUT_final+"/"
