@@ -25,9 +25,10 @@ if len(sys.argv) < 3:
 
 name=sys.argv[1]
 conf=sys.argv[2]
+type=sys.argv[3]#"v1.5"
 call="pack_results_name.py "+name+" "+conf+"/pack_CS.csv SSP"
 mycall(call)
-call="pack_results_name.py "+name+" "+conf+"/pack_elines_v1.5.csv ELINES"
+call="pack_results_name.py "+name+" "+conf+"/pack_elines_"+type+".csv ELINES"
 mycall(call)
 call="sum_mass_age.py "+name+"  Mass."+name+".csv"
 mycall(call)

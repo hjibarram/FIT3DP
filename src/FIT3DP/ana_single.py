@@ -109,7 +109,7 @@ temp_3="disk-b/sanchez/ppak/legacy/templates/miuscat/spectra/miuscat_12.fits"
 temp_4="disk-b/sanchez/ppak/legacy/miles_2_gas.fits"
 temp_5="disk-b/sanchez/ppak/legacy/templates/miuscat/spectra/miuscat_12.fits"
 temp_6="disk-b/sanchez/ppak/legacy/templates/miuscat/spectra/miuscat_12.fits"
-
+pack_type="v1.5"
 config="auto_ssp_MaNGA_strong.config"
 config_no="auto_ssp_MaNGA_no_lines.config"
 config_SII="auto_ssp_MaNGA_strong_SII.config"
@@ -535,7 +535,7 @@ mycall(call)
 call="sum_mass_age.py "+NAME+" MASS."+NAME+".csv"
 mycall(call)
 #
-call="pack_NAME.py "+NAME+" "+DIR_CONF
+call="pack_NAME.py "+NAME+" "+DIR_CONF+" "+pack_type
 mycall(call)
 #sys.exit()
 end_time=print_time()
