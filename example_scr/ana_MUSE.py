@@ -79,19 +79,62 @@ def sycall(comand):
     os.system(comand)
     print "DONE"
 
-def reset_cube(name):
-    call="mv "+name+" "+name.replace('.rscube.fits.gz','.cube.fits.gz')
+def wfits_ext(name, hlist):
+    if pt.exists(name) == False:
+        hlist.writeto(name)
+    else:
+        sycall("rm "+name)
+        hlist.writeto(name)
+
+def reset_cube(name,namer="-1",namev="-1"):
+    import pyfits as pyf
+    namef=name
+    if pt.exists(name+".fits.gz") == True:
+        name=name+".fits.gz"
+    if pt.exists(name+".fits") == True:
+        name=name+".fits"
+    if pt.exists(name+".fits.fz") == True:
+        name=name+".fits.fz"
+    hdulist = pyfits.open(name)
+    img=hdulist[0].data
+    hd_d=hdulist[0].header
+    [nz,nx,ny]=img.shape
+    if namer != "-1":
+        [img_e,hd_e]=gdata(namer,0,header=True)
+    else:
+        img_e=np.ones([nz,nx,ny])
+    if namev != "-1":
+        [img_v,hd_v]=gdata(namev,0,header=True)
+    else:
+        img_v=np.ones([nz,nx,ny])
+    if not 'CDELT3' in hd_d:
+        hd_d['CDELT3']=hd_d['CD3_3']
+    ivar_list= pyf.ImageHDU(img_e)
+    mask_list= pyf.ImageHDU(img_v)
+    hlist=pyf.HDUList([hdulist[0],ivar_list,mask_list,mask_list])
+    hlist.update_extend()
+    wfits_ext(namef+'.cube.fits',hlist)
+    call="gzip "+namef+'.cube.fits'
     sycall(call)
 
-sys.argv=filter(None,sys.argv)        
+sys.argv=filter(None,sys.argv)
 if len(sys.argv) < 1:
-    print "USE: ana_dingle.py NAME"
+    print "USE: ana_MUSE.py NAME [ERR_NAME]  [VAR_NAME]"
     sys.exit(0)
-NAME=sys.argv[1]
+NAME=sys.argv[1].replace('.fits.gz','').replace('.fits.fz','').replace('.fits','')
 logfile="ana_CALIFA."+NAME+".log"
 flog=open(logfile,"w")
-reset_cube(NAME)
-NAME=NAME.replace('rscube.fits.gz','')
+name_v="-1"
+name_e="-1"
+if len(sys.argv) == 3:
+    name_e=sys.argv[2]
+if len(sys.argv) == 4:
+    name_v=sys.argv[3]
+logfile="ana_MUSE."+NAME+".log"
+flog=open(logfile,"w")
+if pt.exists(NAME+'.cube.fits.gz') == False:
+    reset_cube(NAME,namer=name_e,namev=name_v)
+#sys.exit()
 
 n_proc=1
 vel_light=flt(299792.458)
@@ -113,9 +156,9 @@ temp_4="disk-b/sanchez/ppak/legacy/miles_2_gas.fits"
 temp_5="disk-b/sanchez/ppak/legacy/templates/miuscat/spectra/miuscat_12.fits"
 temp_6="disk-b/sanchez/ppak/legacy/templates/miuscat/spectra/miuscat_12.fits"
 
-config="auto_ssp_MaNGA_strong.config"
-config_no="auto_ssp_MaNGA_no_lines.config"
-config_SII="auto_ssp_MaNGA_strong_SII.config"
+config="auto_ssp_MUSE_strong.config"
+config_no="auto_ssp_MUSE_no_lines.config"
+config_SII="auto_ssp_MUSE_strong_SII.config"
 
 root_dir=sycallo("echo $FIT3DP_PATH")+"/.."
 DIR_CONF=root_dir+"/"+DIR_CONF
@@ -144,8 +187,10 @@ mycall(call)
 config=config+"_n"
 config_no=config_no+"_n"
 config_SII=config_SII+"_n"
-call="get_slice.py "+FILE+" img_"+NAME+" "+DIR_CONF+"/slice_V.conf" 
+call="get_slice.py "+FILE+" img_"+NAME+" "+DIR_CONF+"/slice_R.conf"
 mycall(call)
+call="mv img_"+NAME+"_R_5500_6500.fits img_"+NAME+"_V_4500_5500.fits"
+sycall(call)
 
 V_img="img_"+NAME+"_V_4500_5500.fits"
 [img,hd_mask]=gdata(V_img,0,header=True)                                             
@@ -248,7 +293,7 @@ key=data[1]
 vel=data[2]
 if vel== "none":
     vel=0
-call="vel_eline_spec.py "+NAME+".spec_5.txt 2 0.7 junk 3728 OII_"+NAME+".pdf/1 3700 4000 vel_eline_spec."+NAME+".txt"
+call="vel_eline_spec.py "+NAME+".spec_5.txt 2 0.7 junk 6562 Ha_"+NAME+".pdf/1 6530 6770 vel_eline_spec."+NAME+".txt"
 mycall(call)
 
 f_eline="vel_eline_spec."+NAME+".txt"
@@ -274,7 +319,7 @@ red=0.02
 min_red=0.0001
 max_red=0.15
 d_red=300/vel_light
-call="auto_ssp_elines_rnd.py  "+NAME+".spec_5.txt "+temp_5+","+temp_4+" auto_ssp_Z."+NAME+".cen.out "+DIR_CONF+"/mask_elines.txt "+DIR_CONF+"/"+config_no+" "+str(plot)+" -3 50 3800,3850 7000,4700 none  "+str(red)+" "+str(d_red)+" "+str(min_red)+" "+str(max_red)+" 1.6 0.5 1.2 5.5 0.0 0.15 0.0 1.6"
+call="auto_ssp_elines_rnd.py  "+NAME+".spec_5.txt "+temp_5+","+temp_4+" auto_ssp_Z."+NAME+".cen.out "+DIR_CONF+"/mask_elines.txt "+DIR_CONF+"/"+config_no+" "+str(plot)+" -3 50 4800,4850 7000,5700 none  "+str(red)+" "+str(d_red)+" "+str(min_red)+" "+str(max_red)+" 1.6 0.5 1.2 5.5 0.0 0.15 0.0 1.6"
 mycall(call)
 #sys.exit()
 vel=0
@@ -297,10 +342,10 @@ if vel==0:
 call="redshift_config.py "+DIR_CONF+"/"+config+" "+str(red)+" auto."+NAME+".config"
 mycall(call)
 
-w_cut1_1=3800*(1+red)
+w_cut1_1=4800*(1+red)
 w_cut1_2=7000*(1+red)
-w_cut2_1=3850*(1+red)
-w_cut2_2=4700*(1+red)
+w_cut2_1=4850*(1+red)
+w_cut2_2=5700*(1+red)
 
 #call="auto_ssp_elines_rnd.py  "+NAME+".spec_5.txt "+temp_5+","+temp_2+" auto_ssp_no_mask."+NAME+".cen.out none auto."+NAME+".config "+str(plot)+" -3 50 3700,3850 10000,4700 "+DIR_CONF+"/emission_lines.txt  "+str(red)+" 0 "+str(min_red)+" "+str(max_red)+" 3.2 0.3 1.2 "+str(disp_MAX)+" 0.3 0.15 0.0 1.6"
 call="auto_ssp_elines_rnd_sigma_inst.py  "+NAME+".spec_5.txt "+temp_5+","+temp_2+",0.7201 auto_ssp_no_mask."+NAME+".cen.out none auto."+NAME+".config "+str(plot)+" -3 50 "+str(w_cut1_1)+","+str(w_cut2_1)+" "+str(w_cut1_2)+","+str(w_cut2_2)+" "+DIR_CONF+"/emission_lines.txt  "+str(red)+" 0 "+str(min_red)+" "+str(max_red)+" 30 20 1 400 0.0 0.15 0.0 1.6"
@@ -349,8 +394,11 @@ mycall(call)
 call="rss_seg2cube.py CS."+NAME+".RSS.fits cont_seg."+NAME+".fits SEG.cube."+NAME+".fits"
 mycall(call)
 
-call="get_slice.py SEG.cube."+NAME+".fits SEG_img_"+NAME+" "+DIR_CONF+"/slice_V.conf" 
+call="get_slice.py SEG.cube."+NAME+".fits SEG_img_"+NAME+" "+DIR_CONF+"/slice_R.conf"
 mycall(call)
+
+call="mv SEG_img_"+NAME+"_R_5500_6500.fits SEG_img_"+NAME+"_V_4500_5500.fits"
+sycall(call)
 
 call="clean_nan.py  SEG_img_"+NAME+"_V_4500_5500.fits -1"
 mycall(call)
