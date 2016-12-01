@@ -80,7 +80,7 @@ def sycall(comand):
     print "DONE"
 
 def reset_cube(name):
-    call="mv "+name+" "+name.replace('.rscube.fits.gz','.cube.fits.gz')
+    call="cp "+name+" "+name.replace('.rscube.fits.gz','.cube.fits.gz')
     sycall(call)
 
 sys.argv=filter(None,sys.argv)        
@@ -91,7 +91,7 @@ NAME=sys.argv[1]
 logfile="ana_CALIFA."+NAME+".log"
 flog=open(logfile,"w")
 reset_cube(NAME)
-NAME=NAME.replace('rscube.fits.gz','')
+NAME=NAME.replace('.rscube.fits.gz','')
 
 n_proc=1
 vel_light=flt(299792.458)
