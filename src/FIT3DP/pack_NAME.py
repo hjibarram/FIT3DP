@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#! /usr/bin/env python
 import sys
 
 def mycall(comand, alias_py='python'):

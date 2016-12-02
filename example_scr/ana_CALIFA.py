@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#! /usr/bin/env python
 
 import sys
 import numpy as np
@@ -209,8 +209,8 @@ YC=0
 SUM=0                                                
 nx0=int(nx*0.33)
 nx1=int(nx*2*0.33)
-ny0=int(nx*0.33)
-ny1=int(nx*2*0.33)
+ny0=int(ny*0.33)
+ny1=int(ny*2*0.33)
 for ii in range(nx0, nx1):                                                  
     for jj in range(ny0, ny1):                                                 
         val=img[ii,jj]                                                 
